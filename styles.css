@@ -1,0 +1,149 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#video,
+#canvas {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+#video.d-none + #canvas {
+  display: block !important;
+}
+
+#photoPreview img {
+  max-width: 400px;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.invalid-feedback {
+  display: none;
+}
+
+.was-validated .form-control:invalid ~ .invalid-feedback,
+.was-validated #cameraContainer.is-invalid ~ #photoFeedback {
+  display: block;
+}
+
+#cameraContainer.is-invalid {
+  border-color: #dc3545;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: url('./images/hayah-karima-banner-021710254873.png') no-repeat center center fixed ;
+    
+    background-size: cover;
+}
+.navbar {
+    background-color: rgba(218, 225, 224, 0.5);
+   
+    padding: 10px 20px;
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.navbar-brand img {
+    height: 70px;
+    width: 140px;
+    margin-right: 10px;
+}
+.navbar-nav .nav-link {
+    color: #20a78b;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.navbar-nav .nav-link:hover {
+    color: #20a78b !important;
+}
+.container {
+   
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+}
+.form-control {
+    margin-bottom: 20px;
+    
+}
+#captureButton {
+    background-color: #ff7f00;
+   border: none;
+    color: white;
+    padding: 10px 0;
+}
+#signInBtn {
+    background-color: #20a78b;
+    border: none;
+    color: white;
+    padding: 10px 0;
+}
+#captureButton:hover, #loginButton:hover {
+    opacity: 0.8;
+}
+.text-center {
+    color: #20a78b;
+    font-weight: bold;
+}
+#photoContainer {
+    display: none;
+    text-align: center;
+}
+#video {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border: 1px solid black;
+}
+.footer {
+    background-color: #20a78b;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+.footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.footer .social-icons a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.footer .social-icons a:hover {
+    color: #007bff;
+}
+#signInBtn:hover:not(:disabled),
+#signInBtn:focus:not(:disabled) {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+#signOutBtn:hover:not(:disabled),
+#signOutBtn:focus:not(:disabled) {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
