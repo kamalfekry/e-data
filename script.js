@@ -23,7 +23,8 @@ const validUsernames = [
   "ياسر_فوزي",
   "احمد_محمود",
   "رحمه_سلامه",
-  "دعاء_فاروق"
+  "دعاء_فاروق",
+  "kamal-fekry"
 ];
 
 
@@ -41,6 +42,7 @@ const previewImage = document.getElementById("previewImage")
 
 let stream = null
 let photoTaken = false
+let isRequestInProgress = false
 
 document.addEventListener("DOMContentLoaded", () => {
   initializeCamera()
@@ -63,8 +65,8 @@ function initializeCamera() {
 
 function updateButtonStates() {
   const isSignedIn = localStorage.getItem("username") !== null
-  signInBtn.disabled = isSignedIn
-  signOutBtn.disabled = !isSignedIn
+  signInBtn.disabled = isSignedIn || isRequestInProgress
+  signOutBtn.disabled = !isSignedIn || isRequestInProgress
 }
 
 captureBtn.addEventListener("click", () => {
@@ -129,9 +131,18 @@ function validateForm(action) {
 
 async function handleSignInOut(action) {
   try {
+    if (isRequestInProgress) {
+      console.log("A request is already in progress. Please wait.")
+      return
+    }
+
     if (!validateForm(action)) {
       return
     }
+
+    isRequestInProgress = true
+    signInBtn.disabled = true
+    signOutBtn.disabled = true
 
     const username = usernameInput.value.trim()
     const photoData = canvas.toDataURL("image/jpeg", 0.5)
@@ -168,6 +179,9 @@ async function handleSignInOut(action) {
   } catch (error) {
     console.error("Error:", error)
     alert("An error occurred. Please try again.")
+  } finally {
+    isRequestInProgress = false
+    updateButtonStates()
   }
 }
 
@@ -195,4 +209,3 @@ window.addEventListener("beforeunload", () => {
     stream.getTracks().forEach((track) => track.stop())
   }
 })
-
