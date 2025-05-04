@@ -24,6 +24,11 @@ const validUsernames = [
   "a.yasser",
   "r.saeed",
   "d.mohamed",
+  "a.emad",
+  "r.mahmoud",
+  "a.hossam",
+  "a.maher",
+  "h.esam",
   "kamal"
 ];
 
